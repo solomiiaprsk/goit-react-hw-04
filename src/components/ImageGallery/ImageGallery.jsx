@@ -1,14 +1,14 @@
 import ImageCard from "../ImageCard/ImageCard";
-import { forwardRef } from "react";
 import css from "./ImageGallery.module.css"
+import React, { forwardRef } from 'react';
 
 
-const ImageGallery = forwardRef(({ data }, ref) => {
+const ImageGallery = forwardRef(({ data, openModal }, ref) => {
     return (
         <ul ref={ref} className={css.gallery}>
             {data.map((image) => (
                 <li key={image.id} className={css.galleryItem}>
-                    <ImageCard key={image.id} images={image} />
+                    <ImageCard images={image} openModal={openModal} />
                 </li>
             ))}
             
